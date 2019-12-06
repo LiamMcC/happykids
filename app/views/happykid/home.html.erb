@@ -1,0 +1,205 @@
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container " id="home">
+
+  <div class="w3-display-left w3-text-deep-orange w3-opacity-min" style="padding:48px">
+  <div class="w3-container w3-white  w3-border w3-round">
+    <span class="w3-jumbo w3-hide-small">Happy Kids Pre-School and Montessori</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Happy Kids Pre-School and Montessori</span><br>
+    <span class="w3-large">Carnuff Little, Dean Hill, Navan, Co. Meath C15WY01.</span><br>
+    <span class="w3-large">046-9024853</span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+  
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  
+  </div>
+  </div> 
+</header>
+
+
+
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">LATEST EVENTS</h3>
+  
+  <div class="w3-row">
+    <div class="w3-col m5 w3-center w3-padding-large">
+    <h3>New Room Now Open</h3>
+      <img src="/assets/ab.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+   
+   <p>We are so happy to announce that we have just doubled our capacity and now have more Morning places available.
+
+We are now taking bookings for children wishing to enrol for any of the following: 2019/2020, 2020/2021, 2021/2022</p>
+    </div>
+
+
+   <div class="w3-col m7 w3-center w3-padding-large">
+      <h3>Opening Times</h3>
+      <table id="openhome">
+
+
+<% @happykid.order([:position, :asc]).each do |item| %>
+ <tr>
+  
+    <td><h3><%= item.day %></h3></td>
+    <td><h3><%= item.from %></h3></td>
+    <td><h3><%= item.to %></h3></td>
+    
+  <tr>        
+       
+
+    <% end %>
+
+    </table>
+      
+      
+      
+      </div>
+
+
+  
+  </div>
+
+
+
+ 
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide w3-pink w3-padding">Happy Kids Pre-School Highlights</span>
+  </div>
+</div>
+
+
+
+
+
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+
+
+  <% @promo.order([:position, :asc]).each do |promo| %>
+    
+    
+    <div class="w3-col m6">
+
+
+    <h3 class="w3-center w3-pink"><%= promo.title %></h3>
+
+<div class="w3-col m6">
+            <img src="/assets/<%= promo.image1 %>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
+</div>  
+
+ <div class="w3-col m6">  
+   <p class="w3-justify" style="margin-left:8px;margin-right:8px;"><%= promo.description[0, 170] %>.....</p>
+  
+ </div>  
+
+ <div class="w3-row-padding w3-center">
+ <p class="w3-center"><a href='/<%= promo.id %>' class="w3-button w3-pink">More</a></p>
+ </div>
+   
+   </div>
+    
+  
+    
+       
+       
+    <% end %>
+    
+
+</div>
+
+</div>
+
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min ">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide w3-pink w3-padding">WHATS BEEN HAPPENING</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+
+<% @news.order([:position, :asc]).each do |promo| %>
+
+
+    <div class="w3-col m4">
+      <img src="/assets/<%= promo.image1 %>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
+    <h3 class="w3-center w3-pink"><%= promo.title %></h3>
+      <p class="w3-justify" style="margin-left:8px;margin-right:8px;"><%= promo.description[0, 170] %>.....</p>
+  
+ </div>
+    
+    
+
+  <% end %>
+</div>
+    
+  </div>
+</div>
+
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide w3-pink w3-padding">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">WHERE I WORK</h3>
+  <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <img src="/w3images/map.jpg" class="w3-image w3-round" style="width:100%">
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Carnuff Little, Deanhill, Naven, Co. Meath<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +353863282381<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: info@happykidspreschool.ie<br>
+      </div>
+      <p>Arrange a Visit <i class="fa fa-coffee"></i>, or leave me a note:</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
