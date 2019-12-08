@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root 'happykid#home'
-
-#ßget '/:promo' =>'happykid#promo'
+  
+  get '/contact' =>'happykid#contact'
 
 ####################### Admin routes here ###################################
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "/add/openigtime" => 'happykid#maketime'
   get '/edittime/:id' => 'happykid#edittime'
   post '/edittime/:id' => 'happykid#changetime'
-  get '/deletetime/:id' => 'happykid#delete'
+  get '/deletetime/:id' => 'happykid#deletetime'
 
 
 
@@ -48,6 +48,11 @@ get 'editnews/:id' =>'happykid#editnews'
 
 # Post request to edit news item  
 post 'editnews/:id' =>'happykid#changenews'
+
+
+# Get request to delete news
+get '/deletnews/:id' => 'happykid#deletenews'
+
 
 ####################### Admin routes end here ###################################
 

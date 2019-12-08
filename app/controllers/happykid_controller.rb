@@ -66,7 +66,7 @@ class HappykidController < ApplicationController
 
 
 # Get request to delete opening time 
-        def delete 
+        def deletetime
             OpeningTime.find(params[:id]).destroy
             redirect_to "/admin"
         end
@@ -190,8 +190,18 @@ def changenews
 
 redirect_to "/admin"
 end
-    ################  News DETAILS END HERE #####################
 
+
+
+
+# Get request to delete opening time 
+def deletenews
+  News.find(params[:id]).destroy
+  redirect_to "/admin"
+end
+
+
+    ################  News DETAILS END HERE #####################
 
 
 
