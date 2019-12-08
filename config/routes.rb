@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :user
+
+
+  
+  
+
   root 'happykid#home'
   
   get '/contact' =>'happykid#contact'

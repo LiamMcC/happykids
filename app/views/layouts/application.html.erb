@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-<title>Louise</title>
+<title>
+  <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+  Happy Kids Pre-School
+</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>GolfStore</title>
+   
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-   
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+<meta name='description'  content='<%= yield_meta_tag(:description, 'Happy Kids Pre School and Montessori Carnuff Little Dean Hill Naven Co. Meath') %>' />
+
+
 
 <body>
 
@@ -22,6 +30,24 @@
     <a href="/" class="w3-bar-item w3-button w3-wide">Happy Kids Pre-School</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
+
+        <% if user_signed_in? %>
+        <a href="#about" class="w3-bar-item w3-button">Hi, <%= current_user.username.upcase %></a>
+
+             
+                 <%= link_to '<i class="fa fa-user"></i> ''LOG-OUT'.html_safe, destroy_user_session_path, method: :delete,  class: "w3-bar-item w3-button" %>
+          <%= link_to 'PROFILE', edit_user_registration_path,  class: "w3-bar-item w3-button" %>
+          <% else %>
+                 <%= link_to '<i class="fa fa-user"></i> ''REGISTER'.html_safe, new_user_registration_path, class: "w3-bar-item w3-button" %>
+                 <%= link_to '<i class="fa fa-user"></i> ''SIGN-IN'.html_safe, new_user_session_path,  class: "w3-bar-item w3-button" %>
+          <% end %>
+
+
+
+
+
+
+
       <a href="#about" class="w3-bar-item w3-button">ENROLL</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> GALLERY</a>

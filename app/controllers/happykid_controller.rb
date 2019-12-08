@@ -1,12 +1,18 @@
 class HappykidController < ApplicationController
+  before_action :authenticate_user!, :except => [:home, :contact]
+# https://nithinbekal.com/posts/rails-page-titles/ this is for title tags and descriptions
   def home
     @happykid = OpeningTime.all
     @promo = Promo.all
 
     @news = News.all
+
+    @meta = News.last
+   
   end
 
   def contact
+    @meta = OpeningTime.find_by(id: 2) 
   end
                     ################  OPENING TIMES START HERE #####################
 # Open admin page
