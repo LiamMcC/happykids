@@ -13,7 +13,18 @@ class HappykidController < ApplicationController
 
   def contact
     @meta = OpeningTime.find_by(id: 2) 
+
+    
   end
+
+  def news
+    @newsitem = Promo.find_by(title: params[:id].gsub('-',' '))
+    @meta = @newsitem
+    
+
+  end
+
+
                     ################  OPENING TIMES START HERE #####################
 # Open admin page
   def admin

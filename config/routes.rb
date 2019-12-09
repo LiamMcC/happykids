@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   
   get '/contact' =>'happykid#contact'
 
+
+  get '/news/:id' => 'happykid#news'
+
 ####################### Admin routes here ###################################
 
 
