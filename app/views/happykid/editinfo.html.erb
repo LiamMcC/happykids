@@ -1,10 +1,10 @@
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">LATEST EVENTS</h3>
+  <h3 class="w3-center">Modify Site Information</h3>
 
 Edit <%= @nox %>
 
 
-<%= form_for :promo do |f| %>
+<%= form_for :news do |f| %>
   
   
 
@@ -13,16 +13,20 @@ Edit <%= @nox %>
     <%= f.text_field :title, :value => @title, :class =>"w3-input w3-border" %>
   </div>
 
+<div class="field">
+    <%= f.label :SubTitle %>
+    <%= f.text_field :subtitle, :value => @subtitle, :class =>"w3-input w3-border" %>
+  </div>
 
    <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description, :value => @description, :class =>"w3-input w3-border", rows: 10 %>
+    <%= f.text_field :description, :value => @description, :class =>"w3-input w3-border" %>
   </div>
 
 
    <div class="field">
-    <%= f.label :Image1 %>
-    <%= f.text_field :image1, :value => @image1, :class =>"w3-input w3-border" %>
+    <%= f.label :Image %>
+    <%= f.text_field :image, :value => @image, :class =>"w3-input w3-border" %>
   </div>
 
 
@@ -34,13 +38,6 @@ Edit <%= @nox %>
      <div class="field">
     <%= f.label :Position %>
     <%= f.text_field :position, :value => @position, :class =>"w3-input w3-border" %>
-  </div>
-
-
-
-       <div class="field">
-    <p>Set This to false to be main item on home page</p>
-    <%= f.text_field :on, :value => @on, :class =>"w3-input w3-border" %>
   </div>
 
 

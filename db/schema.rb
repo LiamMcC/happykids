@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_08_190544) do
+ActiveRecord::Schema.define(version: 2021_03_30_113934) do
 
-  create_table "news", force: :cascade do |t|
+  create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "image1"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_190544) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "opening_times", force: :cascade do |t|
+  create_table "opening_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "day"
     t.string "from"
     t.string "to"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_190544) do
     t.integer "position"
   end
 
-  create_table "promos", force: :cascade do |t|
+  create_table "promos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "image1"
@@ -44,7 +44,18 @@ ActiveRecord::Schema.define(version: 2019_12_08_190544) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "site_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "position"
+    t.string "title"
+    t.string "subtitle"
+    t.text "description"
+    t.string "image"
+    t.string "image2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -20,8 +20,12 @@ Rails.application.routes.draw do
 #Admin
   get '/admin' => "happykid#admin"
 
-
-
+  #Admin info section
+  get '/add/info' => 'happykid#addinfo'
+  post 'add/info' => 'happykid#makeinfo' 
+  get '/editinfo/:id' => 'happykid#editinfo'
+  post '/editinfo/:id' => 'happykid#changeinfo'
+  get '/deleteinfo/:id' => 'happykid#deleteinfo'
   # Admin opening times
   
   get '/add/openigtime' => 'happykid#addtime'

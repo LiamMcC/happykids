@@ -20,7 +20,7 @@
 <th>On Show</th>
 <th>Edit</th>
 <th>Delete</th>
-<% @happykid.order([:position, :asc]).each do |item| %>
+<% @happykid.each do |item| %>
  <tr>
    
     <td><%= item.day %></td>
@@ -56,13 +56,13 @@
 <th>On</th>
 <th>Edit</th>
 <th>Delete</th>
-<% @promo.order([:position, :asc]).each do |promo| %>
+<% @promo.each do |promo| %>
  <tr>
    
     <td><%= promo.title %></td>
   
     <td><%= promo.image1 %></td>
-    <td><%= promo.image2 %></td>
+    <td><%= promo.position %></td>
     <td><%= promo.on %></td>
     <td><a href='/editpromo/<%= promo.id %>' class="w3-button w3-orange">Edit Me</a></td>
     <td><a href="/deletpromo/<%= promo.id %>" class="w3-button w3-red">Delete Me</a></td>
@@ -88,13 +88,13 @@
 <th>On</th>
 <th>Edit</th>
 <th>Delete</th>
-<% @news.order([:position, :asc]).each do |news| %>
+<% @news.each do |news| %>
  <tr>
    
     <td><%= news.title %></td>
   
     <td><%= news.image1 %></td>
-    <td><%= news.image2 %></td>
+    <td><%= news.position %></td>
     <td><%= news.on %></td>
     <td><a href='/editnews/<%= news.id %>' class="w3-button w3-orange">Edit Me</a></td>
     <td><a href="/deletnews/<%= news.id %>" class="w3-button w3-red">Delete Me</a></td>
@@ -105,6 +105,42 @@
     </table>
 
     <a href="/add/news"  class="w3-button w3-black w3-right w3-section" >Make a new News Item</a>
+  </div>
+
+
+
+
+
+
+
+
+<div class="w3-row-padding w3-center">
+<h3 class="w3-center">Website Information</h3>
+
+<table id="times">
+
+<th>Title</th>
+<th>Image 1</th>
+<th>Image 2</th>
+<th>Edit</th>
+<th>Delete</th>
+<% @siteInfo.each do |news| %>
+ <tr>
+   
+    <td><%= news.title %></td>
+  
+    <td><%= news.image %></td>
+    <td><%= news.position %></td>
+    
+    <td><a href='/editinfo/<%= news.id %>' class="w3-button w3-orange">Edit Me</a></td>
+    <td><a href="/deletinfo/<%= news.id %>" class="w3-button w3-red">Delete Me</a></td>
+  <tr>        
+       
+    <% end %>
+
+    </table>
+
+    <a href="/add/info"  class="w3-button w3-black w3-right w3-section" >Make New Site Info</a>
   </div>
 
 

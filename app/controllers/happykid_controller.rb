@@ -8,6 +8,8 @@ class HappykidController < ApplicationController
     @news = News.all
 
     @meta = News.last
+
+    @siteinfo = SiteInfo.all
    
   end
 
@@ -31,6 +33,7 @@ class HappykidController < ApplicationController
     @happykid = OpeningTime.all
     @promo = Promo.all
     @news = News.all
+    @siteInfo = SiteInfo.all
   end
 
 # Open page to add nwe opening time
@@ -113,7 +116,7 @@ class HappykidController < ApplicationController
               u.image1 = params[:promo][:image1]
               u.image2 = params[:promo][:image2]
               u.position = params[:promo][:position]
-              u.on = true
+              u.on = params[:promo][:on]
               
               
             end
@@ -148,6 +151,7 @@ def changepromo
   @promo.update_attribute(:image1 , params[:promo][:image1])
   @promo.update_attribute(:image2 , params[:promo][:image2])
   @promo.update_attribute(:position , params[:promo][:position])
+  @promo.update_attribute(:on , params[:promo][:on])
       
 redirect_to "/admin"
 end
@@ -223,9 +227,73 @@ end
 
 
 
+########### Website Info Starts Here
+
+# get request to render page
+def addinfo
+
+end
 
 
 
+# post request to create a new promoton
+def makeinfo
+
+  info = SiteInfo.new do |u|
+    u.title = params[:info][:title]
+    u.subtitle = params[:info][:subtitle]
+    u.description = params[:info][:description]
+    u.image = params[:info][:image]
+    u.image2 = params[:info][:image2]
+    u.position = params[:info][:position]
+    
+    
+    
+  end
+  info.save
+  redirect_to "/admin"
+end
+
+# get request to render page
+def editinfo
+  @newsx = params[:id]
+  @newsf = SiteInfo.find_by(id: params[:id]) 
+
+    @title = @newsf.title
+    @subtitle = @newsf.subtitle
+    @description = @newsf.description
+    @image = @newsf.image
+    @image2 = @newsf.image2
+    @position = @newsf.position
+
+
+end
+
+
+########### Website info ends here 
+
+def changeinfo
+
+  @news = SiteInfo.find_by(id: params[:id])
+  @news.update_attribute(:title , params[:news][:title])
+  @news.update_attribute(:subtitle , params[:news][:subtitle])
+  @news.update_attribute(:description , params[:news][:description])
+  @news.update_attribute(:image , params[:news][:image])
+  @news.update_attribute(:image2 , params[:news][:image2])
+  @news.update_attribute(:position , params[:news][:position])
+  
+  redirect_to "/admin"
+  end
+  
+  
+  
+  
+  # Get request to delete opening time 
+  def deletinfo
+    SiteInfo.find(params[:id]).destroy
+    redirect_to "/admin"
+  end
+  
 
 
 end
